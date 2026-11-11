@@ -1,0 +1,22 @@
+﻿# Segredos (RNF08)
+.env
+*.keytab
+*.key
+*.pem
+krb5.conf.local
+secrets/
+
+# Dados pesados
+data/pdfs/
+data/*.json
+*.pdf
+
+# Python
+__pycache__/
+.venv/
+*.pyc
+
+# Node / IDE
+node_modules/
+.vscode/
+.DS_Store
