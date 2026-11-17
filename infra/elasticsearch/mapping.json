@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 0,
+    "analysis": {
+      "filter": {
+        "stop_pt": {
+          "type": "stop",
+          "stopwords": "_brazilian_"
+        },
+        "stem_pt": {
+          "type": "stemmer",
+          "language": "brazilian"
+        },
+        "sinonimos_pt": {
+          "type": "synonym_graph",
+          "lenient": true,
+          "synonyms": [
+            "etica, moral, deontologia",
+            "corrupcao, improbidade",
+            "sustentabilidade, desenvolvimento sustentavel",
+            "meio ambiente, ecologia",
+            "inteligencia artificial, ia",
+            "banco de dados, sgbd",
+            "tecnologia da informacao, ti",
+            "violencia, agressao",
+            "democracia, regime democratico",
+            "cidadania, direitos civis"
+          ]
+        }
+      },
+      "analyzer": {
+        "pt_index": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "stop_pt",
+            "asciifolding",
+            "stem_pt"
+          ]
+        },
+        "pt_search": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "stop_pt",
+            "asciifolding",
+            "sinonimos_pt",
+            "stem_pt"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "ano": {
+        "type": "integer"
+      },
+      "curso": {
+        "type": "keyword"
+      },
+      "curso_titulo": {
+        "type": "keyword"
+      },
+      "grau": {
+        "type": "keyword"
+      },
+      "tipo_prova": {
+        "type": "keyword"
+      },
+      "tipo_questao": {
+        "type": "keyword"
+      },
+      "numero": {
+        "type": "integer"
+      },
+      "texto_base": {
+        "type": "text",
+        "analyzer": "pt_index",
+        "search_analyzer": "pt_search"
+      },
+      "enunciado": {
+        "type": "text",
+        "analyzer": "pt_index",
+        "search_analyzer": "pt_search"
+      },
+      "alternativas": {
+        "properties": {
+          "A": {
+            "type": "text",
+            "analyzer": "pt_index",
+            "search_analyzer": "pt_search"
+          },
+          "B": {
+            "type": "text",
+            "analyzer": "pt_index",
+            "search_analyzer": "pt_search"
+          },
+          "C": {
+            "type": "text",
+            "analyzer": "pt_index",
+            "search_analyzer": "pt_search"
+          },
+          "D": {
+            "type": "text",
+            "analyzer": "pt_index",
+            "search_analyzer": "pt_search"
+          },
+          "E": {
+            "type": "text",
+            "analyzer": "pt_index",
+            "search_analyzer": "pt_search"
+          }
+        }
+      },
+      "gabarito": {
+        "type": "keyword"
+      },
+      "anulada": {
+        "type": "boolean"
+      },
+      "pdf_origem": {
+        "type": "keyword"
+      },
+      "pagina": {
+        "type": "integer"
+      },
+      "tem_midia": {
+        "type": "boolean"
+      },
+      "competencias": {
+        "type": "keyword"
+      },
+      "objetos_conhecimento": {
+        "type": "keyword"
+      }
+    }
+  }
+}
