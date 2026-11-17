@@ -1,0 +1,12 @@
+ano,arquivo,curso,questoes,objetivas,discursivas,suspeitas,anuladas,com_gabarito,achou_gabarito,cid_total,cid_desconhecidos
+2012,07_direito.pdf,direito,40,35,5,1,1,34,True,0,0
+2014,03_computacao_bacharelado.pdf,computacao_bacharelado,40,35,5,0,0,35,True,47769,48
+2014,04_computacao_licenciatura.pdf,computacao_licenciatura,40,35,5,0,0,35,True,54105,5
+2014,14_engenharia_computacao.pdf,engenharia_computacao,40,35,5,0,3,32,True,53420,1242
+2014,39_sistemas_informacao.pdf,sistemas_informacao,40,35,5,0,0,35,True,51762,8
+2014,40_tecnologia_analise_desenv_sistemas.pdf,tecnologia_analise_desenv_sistemas,40,35,5,0,0,35,True,47519,40
+2014,43_tecnologia_redes_computadores.pdf,tecnologia_redes_computadores,40,35,5,0,0,35,True,57104,11
+2015,08_direito.pdf,direito,40,35,5,0,1,34,True,33568,5
+2017,40_sis_informacao_baixa.pdf,sistemas_de_informacao,40,35,5,0,1,34,True,57618,25
+2018,direito.pdf,direito,40,35,5,0,0,35,True,0,0
+2019,engenharia_computacao.pdf,engenharia_de_computacao,40,35,5,0,1,34,True,30,12
