@@ -16,8 +16,8 @@ sess = requests.Session()
 sess.headers.update(HEADERS)
 
 
-def get(url, **kw):
-    for tentativa in range(3):
+def get(url, tentativas=3, **kw):
+    for tentativa in range(tentativas):
         try:
             r = sess.get(url, timeout=60, **kw)
             r.raise_for_status()
@@ -81,6 +81,10 @@ def baixar(url, ano, tipo, nome):
         return "ja_existia", destino
     destino.parent.mkdir(parents=True, exist_ok=True)
     r = get(url)
+    if not r:
+        # alguns arquivos só respondem em um dos protocolos: tenta o outro uma vez
+        alt = url.replace("https://", "http://", 1) if url.startswith("https://") else url.replace("http://", "https://", 1)
+        r = get(alt, tentativas=1)
     if not r or not r.content.startswith(b"%PDF"):
         return "falhou", destino
     destino.write_bytes(r.content)
